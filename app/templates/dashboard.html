@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Selamat datang, {{ session['display_name'] }}!</h2>
+
+<p>Ini adalah halaman dashboard. Kamu sudah login sebagai {{ session['user'] }}.</p>
+
+{% if session['role'] == 'admin' %}
+    <p><a href="{{ url_for('auth.admin_panel') }}">
+    <button style="padding: 10px; background-color: navy; color: white; border-radius: 5px;">
+        🔧 Buka Panel Admin
+    </button>
+</a>
+    </p>
+{% endif %}
+
+<p><a href="{{ url_for('auth.logout') }}">Logout</a></p>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Panel Admin{% endblock %}
+
+{% block content %}
+<h2>Selamat datang di Panel Admin, {{ session['display_name'] }}!</h2>
+
+<p>
+    <a href="{{ url_for('auth.add_user') }}">
+        <button>➕ Tambah User</button>
+    </a>
+</p>
+
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>Username</th>
+        <th>Display Name</th>
+        <th>Role</th>
+        <th>Aksi</th>
+    </tr>
+    {% for username, data in users.items() %}
+        <tr>
+            <td>{{ username }}</td>
+            <td>{{ data.display_name }}</td>
+            <td>{{ data.role }}</td>
+            <td style="display: flex; gap: 8px;">
+            {% if username != session['user'] %}
+                <form method="POST" action="{{ url_for('auth.delete_user', username=username) }}" style="display:inline;">
+                <button type="submit" onclick="return confirm('Yakin mau hapus {{ data.display_name }}?')">Hapus</button>
+            </form>
+            <a href="{{ url_for('auth.edit_user', username=username) }}">
+            <button>Edit</button>
+            </a>
+            {% else %}
+            (Login)
+            {% endif %}
+            </td>
+
+        </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="{{ url_for('auth.dashboard') }}">⬅️ Kembali ke Dashboard</a>
+{% endblock %}

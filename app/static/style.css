@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Hanya untuk form besar (login, register, dsb) */
+form.box-form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+input, select, button {
+    padding: 10px;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+.flash { color: red; }
+
+button {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: none; /* <-- ini penting */
+    outline: none;
+    padding: 10px 15px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #1565c0;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* opsional biar halus */
+}
+
+
+a {
+    text-decoration: none;
+    color: #1e88e5;
+}
+
+
+ul {
+    padding-left: 20px;
+}

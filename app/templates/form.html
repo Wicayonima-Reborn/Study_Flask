@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validasi</title>
+</head>
+<body>
+    <h2>Isi Nama Kamu!</h2>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="color:red;">
+                {% for msg in messages %}
+                    <li>{{ msg }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        Nama: <input type="text" name="nama">
+        <input type="submit" value="Kirim">
+    </form>
+</body>
+</html>

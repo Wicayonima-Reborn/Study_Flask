@@ -1,0 +1,22 @@
+{
+    "wicayonima": {
+        "password": "123",
+        "display_name": "Wicayonima",
+        "role": "user"
+    },
+    "admin": {
+        "password": "scrypt:32768:8:1$CjjqchnW7oxgH3Lz$91c1b08f35ce3fcc6b4ce9ee6815c997c0c9b81092745c3a0bd22dcc2570eb0af2d6fec4f6a8fab4e518af1551e8917ff1315167a1ee4cd8258e264aadafaff7",
+        "display_name": "Pak Admin",
+        "role": "admin"
+    },
+    "jokowi": {
+        "password": "scrypt:32768:8:1$WloKG5rLzWKijPOb$1609109c8d94d729c5a24eb4371409a6c8d3d19cc3f85ee09e85fc1a8860b94f5a7e802d6673682338cc0675043b0c3c7bef63fb440de5d65299747340d01568",
+        "display_name": "jokowi",
+        "role": "admin"
+    },
+    "notyonima": {
+        "password": "scrypt:32768:8:1$QMU86x7Fq4eVi5e9$5b03dd2dba5d5c2e099cf7534dfbd8e424164e36dc9b112ecbc6949d8a7c3912d3b669545476f8c1e90b838b48111409c9744c54ce7b03e4f6b7aa9060d48e61",
+        "display_name": "joko",
+        "role": "user"
+    }
+}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Tambah User{% endblock %}
+
+{% block content %}
+<h2>Tambah User Baru</h2>
+
+<form class="box-form" method="POST">
+    Username:
+    <input type="text" name="username"><br><br>
+
+    Password:
+    <input type="password" name="password"><br><br>
+
+    Display Name:
+    <input type="text" name="display_name"><br><br>
+
+    Role:
+    <select name="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+    </select><br><br>
+
+    <button type="submit">Tambah User</button>
+</form>
+
+<br>
+<a href="{{ url_for('auth.admin_panel') }}">⬅️ Kembali ke Panel Admin</a>
+{% endblock %}
