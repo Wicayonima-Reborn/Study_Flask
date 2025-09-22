@@ -207,6 +207,6 @@ marimo/_lsp/
 __marimo__/
 
 # File sampah
-backup.py
-hash.py
-progres.txt
+.backup.py
+.hash.py
+.progres.txt
