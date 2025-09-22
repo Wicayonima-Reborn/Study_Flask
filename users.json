@@ -18,5 +18,10 @@
         "password": "scrypt:32768:8:1$QMU86x7Fq4eVi5e9$5b03dd2dba5d5c2e099cf7534dfbd8e424164e36dc9b112ecbc6949d8a7c3912d3b669545476f8c1e90b838b48111409c9744c54ce7b03e4f6b7aa9060d48e61",
         "display_name": "joko",
         "role": "user"
+    },
+    "mine": {
+        "password": "scrypt:32768:8:1$76ZpEEJjjJFs1PCw$c4b2ed6ff2a2cd0d49a046208eb34f089084fb6d72d8ac8d027c0396f5ca3b61e2e40a9865611ea267bbc8016a64d9cc37fe24a2b46f8381347a6cce192c34b8",
+        "display_name": "mine",
+        "role": "admin"
     }
 }

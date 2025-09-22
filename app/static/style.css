@@ -8,15 +8,24 @@ h2 {
     color: #333;
 }
 
-/* Hanya untuk form besar (login, register, dsb) */
-form.box-form {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 400px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+.wrap {
+  display: flex;
+  flex-direction: column;  /* biar link login tetap di bawah form */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;       /* tinggi penuh layar */
+  background: #f4f4f9;     /* opsional, biar ada warna background */
 }
 
+/* form styling */
+form.box-form {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
 
 input, select, button {
     padding: 10px;

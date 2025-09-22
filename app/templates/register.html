@@ -3,11 +3,21 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-<h2>Register</h2>
-<form class="box-form" method="POST">
-    Username: <input type="text" name="username"><br><br>
-    Password: <input type="password" name="password"><br><br>
-    <input type="submit" value="Daftar">
-</form>
-<a href="{{ url_for('auth.login') }}">Sudah punya akun? Login</a>
+<div class="wrap">
+  <form class="box-form" method="POST" autocomplete="off">
+      <h2>Register</h2>
+      
+      <label>Username:</label><br>
+      <input type="text" name="username"><br><br>
+        
+      <label>Password:</label><br>
+      <input type="password" name="password"><br><br>
+      
+      <input type="submit" value="Daftar">
+  </form>
+
+  <p>
+    <a href="{{ url_for('auth.login') }}">Sudah punya akun? Login</a>
+  </p>
+</div>
 {% endblock %}

@@ -80,7 +80,7 @@ def admin_panel():
     users = load_users()
     return render_template('admin_panel.html', users=users)
 
-# ❌ Hapus user
+# Hapus user
 @auth.route('/admin/delete/<username>', methods=['POST'])
 def delete_user(username):
     if 'user' not in session or session.get('role') != 'admin':
@@ -128,7 +128,7 @@ def edit_user(username):
 
     return render_template('edit_user.html', username=username, data=users[username])
 
-# ➕ Tambah user
+# Tambah user
 @auth.route('/admin/add', methods=['GET', 'POST'])
 def add_user():
     if 'user' not in session or session.get('role') != 'admin':
@@ -163,7 +163,7 @@ def add_user():
 
     return render_template('add_user.html')
 
-# 🔑 Ganti Password
+# Ganti Password
 @auth.route('/change-password', methods=['GET', 'POST'])
 def change_password():
     if 'user' not in session:
