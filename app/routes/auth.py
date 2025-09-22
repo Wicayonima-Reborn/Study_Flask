@@ -4,12 +4,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 auth = Blueprint('auth', __name__)
 
-# ⛩️ Root redirect ke login
+# Root redirect ke login
 @auth.route('/')
 def home():
     return redirect(url_for('auth.login'))
 
-# 🔐 Login
+# Login
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     users = load_users()
@@ -32,7 +32,7 @@ def login():
 
     return render_template('login.html')
 
-# 📝 Register
+# Register
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
     users = load_users()
@@ -62,7 +62,7 @@ def register():
 
     return render_template('register.html')
 
-# 🏠 Dashboard (user/admin)
+# Dashboard (user/admin)
 @auth.route('/dashboard')
 def dashboard():
     if 'user' in session:
@@ -70,7 +70,7 @@ def dashboard():
     flash('Silakan login pek!')
     return redirect(url_for('auth.login'))
 
-# ⚙️ Admin Panel
+# Admin Panel
 @auth.route('/admin')
 def admin_panel():
     if 'user' not in session or session.get('role') != 'admin':
@@ -98,7 +98,7 @@ def delete_user(username):
 
     return redirect(url_for('auth.admin_panel'))
 
-# ✏️ Edit user
+# Edit user
 @auth.route('/admin/edit/<username>', methods=['GET', 'POST'])
 def edit_user(username):
     if 'user' not in session or session.get('role') != 'admin':
@@ -163,7 +163,46 @@ def add_user():
 
     return render_template('add_user.html')
 
-# 🚪 Logout
+# 🔑 Ganti Password
+@auth.route('/change-password', methods=['GET', 'POST'])
+def change_password():
+    if 'user' not in session:
+        flash('Login dulu dong!')
+        return redirect(url_for('auth.login'))
+
+    users = load_users()
+    username = session['user']
+
+    if request.method == 'POST':
+        old_password = request.form['old_password']
+        new_password = request.form['new_password']
+        confirm_password = request.form['confirm_password']
+
+        # Validasi input
+        if not old_password.strip() or not new_password.strip() or not confirm_password.strip():
+            flash('Semua field wajib diisi!')
+            return redirect(url_for('auth.change_password'))
+
+        # Cek password lama
+        if not check_password_hash(users[username]['password'], old_password):
+            flash('Password lama salah!')
+            return redirect(url_for('auth.change_password'))
+
+        if new_password != confirm_password:
+            flash('Password baru tidak cocok!')
+            return redirect(url_for('auth.change_password'))
+
+        # Simpan password baru (dihash)
+        users[username]['password'] = generate_password_hash(new_password)
+        save_users(users)
+
+        flash('Password berhasil diganti!')
+        return redirect(url_for('auth.dashboard'))
+
+    return render_template('change_password.html')
+
+
+# Logout
 @auth.route('/logout')
 def logout():
     session.clear()

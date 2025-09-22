@@ -34,7 +34,7 @@ button {
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    box-shadow: none; /* <-- ini penting */
+    box-shadow: none;
     outline: none;
     padding: 10px 15px;
     transition: 0.2s;
@@ -43,7 +43,7 @@ button {
 button:hover {
     background-color: #1565c0;
     transform: translateY(-1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* opsional biar halus */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 
